@@ -2,14 +2,12 @@
 const token = localStorage.getItem('token');
 
 if (!token) {
-    // Pas de token ? Hop, retour à la case départ
     window.location.href = '/login';
 } else {
-    // Si tu veux appeler ton API protégée (ex: /) pour vérifier le token
     fetch('http://127.0.0.1:8080/verify', {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer ' + token // C'est ici qu'on utilise le JWT
+            'Authorization': 'Bearer ' + token 
         }
     })
     .then(res => {

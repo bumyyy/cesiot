@@ -6,6 +6,10 @@ const mqtt = require('mqtt');
 const cors = require('cors');
 const dbManagment = require('./model/doorManagment.js');
 const path = require('path');
+require('dotenv').config();
+const MQTT_URL = process.env.MQTT_URL;
+const MQTT_USERNAME = process.env.MQTT_USERNAME;
+const MQTT_PASSWORD = process.env.MQTT_PASSWORD;
 
 const { getStateMonth, getStateHour, getStateDoor, getAllYears, getDoors } = require('./controllers/door');
 const { login, authenticateJWT, authorizeAdmin, addUser, getAllUsers, deleteUser } = require('./controllers/auth');
@@ -57,9 +61,9 @@ wss.on('connection', function connection(ws) {
 });
 
 // CONFIGURATION MQTT
-const mqttClient = mqtt.connect('mqtts://mqtt.perseusflix.fr', {
-    username: 'iot', 
-    password: 'cesi_iot_123',
+const mqttClient = mqtt.connect(MQTT_URL, {
+    username: MQTT_USERNAME, 
+    password: MQTT_PASSWORD,
     port : 62555,
     rejectUnauthorized: false
 }); 
