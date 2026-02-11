@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const loginForm = document.getElementById('loginForm');
     const errorAlert = document.getElementById('errorAlert');
 
@@ -9,7 +7,7 @@ const loginForm = document.getElementById('loginForm');
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch(`${process.env.API_URL}/login`, {
+        const response = await fetch(`/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

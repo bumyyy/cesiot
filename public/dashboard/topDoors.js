@@ -1,10 +1,9 @@
-require('dotenv').config();
 async function loadTopDoors() {
     const listContainer = document.getElementById('topDoorList');
 
     try {
         // 1. Récupération des données
-        const response = await fetch(`${process.env.API_URL}/state/door` , {
+        const response = await fetch(`/state/door` , {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token

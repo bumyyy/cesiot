@@ -1,10 +1,9 @@
-require('dotenv').config();
 let chartHourInstance; // Variable pour stocker l'instance du graphique (pour pouvoir le détruire si on reload)
 
 async function loadHourChart() {
     const ctx = document.getElementById('chartHour');
 
-    const response = await fetch(`${process.env.API_URL}/state/hour`, {
+    const response = await fetch(`/state/hour`, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token

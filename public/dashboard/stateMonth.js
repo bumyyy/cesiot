@@ -1,11 +1,10 @@
-require('dotenv').config();
 let chart;
 
 async function loadMonthChart(year) {
     const ctx = document.getElementById('chartMonth');
 
     // On récupère les données
-    const response = await fetch(`${process.env.API_URL}/state/month?year=` + year , {
+    const response = await fetch(`/state/month?year=` + year , {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token

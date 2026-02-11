@@ -1,11 +1,10 @@
-require('dotenv').config();
 // Sécurité basique Front-end
 const token = localStorage.getItem('token');
 
 if (!token) {
     window.location.href = '/login';
 } else {
-    fetch(`${process.env.API_URL}/verify`, {
+    fetch(`/verify`, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token 

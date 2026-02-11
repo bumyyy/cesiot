@@ -1,9 +1,8 @@
-require('dotenv').config();
 async function initYearDropdown() {
     const select = document.getElementById('yearSelect');
     const currentYear = new Date().getFullYear();
 
-    const response = await fetch(`${process.env.API_URL}/infos/years`, {
+    const response = await fetch(`/infos/years`, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token

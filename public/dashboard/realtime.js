@@ -1,9 +1,7 @@
-require('dotenv').config();
-
 async function initDoors() {
     const tbody = document.getElementById('liveStatusTable');
 
-    const res = await fetch(`${process.env.API_URL}/infos/doors`, {
+    const res = await fetch(`/infos/doors`, {
         headers: {'Authorization': 'Bearer ' + token}
     });
     const doors = await res.json();
@@ -17,7 +15,7 @@ async function initDoors() {
 
 initDoors();
 
-const socket = new WebSocket(process.env.WS_URL);
+const socket = new WebSocket(`ws://${location.host}`);
 
 socket.addEventListener('message', event => {
     try {

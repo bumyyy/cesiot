@@ -1,9 +1,7 @@
-require('dotenv').config();
-
 async function loadDoorChart() {
     const ctx = document.getElementById('chartDoor');
 
-    const response = await fetch(`${process.env.API_URL}/state/door`, {
+    const response = await fetch(`/state/door`, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token

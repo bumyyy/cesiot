@@ -1,4 +1,3 @@
-require('dotenv').config();
 const token = localStorage.getItem('token');
 
 if (!token) window.location.href = '/login';
@@ -15,7 +14,7 @@ if(localStorage.getItem('user')) {
 
 async function loadUsers() {
     try {
-        const response = await fetch(`${process.env.API_URL}/users`, {
+        const response = await fetch(`/users`, {
             headers: { 'Authorization': 'Bearer ' + token }
         });
         
@@ -58,7 +57,7 @@ document.getElementById('addUserForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('newPassword').value;
     const role = document.getElementById('newRole').value;
 
-    const res = await fetch(`${process.env.API_URL}/adduser`, {
+    const res = await fetch(`/adduser`, {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json',
@@ -80,7 +79,7 @@ document.getElementById('addUserForm').addEventListener('submit', async (e) => {
 async function deleteUser(id) {
     if(!confirm("Voulez-vous vraiment supprimer cet utilisateur ?")) return;
 
-    const res = await fetch(`${process.env.API_URL}/users/${id}`, {
+    const res = await fetch(`/users/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': 'Bearer ' + token }
     });
