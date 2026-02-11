@@ -1,0 +1,23 @@
+services:
+  webapp:
+    build: .
+    container_name: webapp
+    restart: unless-stopped
+    ports:
+      - "62556:8080"
+    env_file:
+      - .env
+  webapp-mysql:
+    image: mysql:8.0
+    container_name: webapp-myqsl
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: cesiot
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+ mysql_data:
