@@ -2,7 +2,7 @@ async function initYearDropdown() {
     const select = document.getElementById('yearSelect');
     const currentYear = new Date().getFullYear();
 
-    const response = await fetch("http://127.0.0.1:8080/infos/years", {
+    const response = await fetch(`${process.env.API_URL}/infos/years`, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token

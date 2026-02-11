@@ -33,12 +33,3 @@ TRUNCATE TABLE door_metrics;
 TRUNCATE TABLE door;
 TRUNCATE TABLE location;
 SET FOREIGN_KEY_CHECKS = 1;
-
-INSERT INTO location (id, doorLocation) VALUES 
-(1, 'Refectoire'),
-(2, 'Accueil'),
-(3, 'Salle 13');
-
-INSERT INTO door (id_location, doorNumber) VALUES (1, 1), (1, 2), (1, 3);
-INSERT INTO door (id_location, doorNumber) VALUES (2, 1);
-INSERT INTO door (id_location, doorNumber) VALUES (3, 1), (3, 2);

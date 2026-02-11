@@ -4,7 +4,7 @@ async function loadMonthChart(year) {
     const ctx = document.getElementById('chartMonth');
 
     // On récupère les données
-    const response = await fetch("http://127.0.0.1:8080/state/month?year=" + year , {
+    const response = await fetch(`${process.env.API_URL}/state/month?year=` + year , {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token

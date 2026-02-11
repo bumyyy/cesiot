@@ -3,7 +3,7 @@ async function loadTopDoors() {
 
     try {
         // 1. Récupération des données
-        const response = await fetch("http://127.0.0.1:8080/state/door" , {
+        const response = await fetch(`${process.env.API_URL}/state/door` , {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token

@@ -4,7 +4,7 @@ const token = localStorage.getItem('token');
 if (!token) {
     window.location.href = '/login';
 } else {
-    fetch('http://127.0.0.1:8080/verify', {
+    fetch(`${process.env.API_URL}/verify`, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token 

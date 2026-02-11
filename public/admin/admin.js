@@ -14,7 +14,7 @@ if(localStorage.getItem('user')) {
 
 async function loadUsers() {
     try {
-        const response = await fetch('http://127.0.0.1:8080/users', {
+        const response = await fetch(`${process.env.API_URL}/users`, {
             headers: { 'Authorization': 'Bearer ' + token }
         });
         
@@ -57,7 +57,7 @@ document.getElementById('addUserForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('newPassword').value;
     const role = document.getElementById('newRole').value;
 
-    const res = await fetch('http://127.0.0.1:8080/adduser', {
+    const res = await fetch(`${process.env.API_URL}/adduser`, {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ document.getElementById('addUserForm').addEventListener('submit', async (e) => {
 async function deleteUser(id) {
     if(!confirm("Voulez-vous vraiment supprimer cet utilisateur ?")) return;
 
-    const res = await fetch(`http://127.0.0.1:8080/users/${id}`, {
+    const res = await fetch(`${process.env.API_URL}/users/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': 'Bearer ' + token }
     });

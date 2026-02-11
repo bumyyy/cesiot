@@ -3,7 +3,7 @@ let chartHourInstance; // Variable pour stocker l'instance du graphique (pour po
 async function loadHourChart() {
     const ctx = document.getElementById('chartHour');
 
-    const response = await fetch("http://127.0.0.1:8080/state/hour", {
+    const response = await fetch(`${process.env.API_URL}/state/hour`, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token
