@@ -1,3 +1,4 @@
+require('dotenv').config();
 // Sécurité basique Front-end
 const token = localStorage.getItem('token');
 

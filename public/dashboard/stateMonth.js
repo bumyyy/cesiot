@@ -1,3 +1,4 @@
+require('dotenv').config();
 let chart;
 
 async function loadMonthChart(year) {

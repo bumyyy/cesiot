@@ -1,3 +1,4 @@
+require('dotenv').config();
 async function loadTopDoors() {
     const listContainer = document.getElementById('topDoorList');
 

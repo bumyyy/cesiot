@@ -1,3 +1,4 @@
+require('dotenv').config();
 async function initYearDropdown() {
     const select = document.getElementById('yearSelect');
     const currentYear = new Date().getFullYear();

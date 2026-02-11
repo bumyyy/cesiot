@@ -1,3 +1,4 @@
+require('dotenv').config();
 let chartHourInstance; // Variable pour stocker l'instance du graphique (pour pouvoir le détruire si on reload)
 
 async function loadHourChart() {

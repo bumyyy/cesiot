@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 async function loadDoorChart() {
     const ctx = document.getElementById('chartDoor');
 

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const loginForm = document.getElementById('loginForm');
     const errorAlert = document.getElementById('errorAlert');
 

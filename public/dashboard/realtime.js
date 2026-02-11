@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 async function initDoors() {
     const tbody = document.getElementById('liveStatusTable');
 

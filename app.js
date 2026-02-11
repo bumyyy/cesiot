@@ -1,3 +1,4 @@
+require('dotenv').config();
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -6,7 +7,6 @@ const mqtt = require('mqtt');
 const cors = require('cors');
 const dbManagment = require('./model/doorManagment.js');
 const path = require('path');
-require('dotenv').config();
 const MQTT_URL = process.env.MQTT_URL;
 const MQTT_USERNAME = process.env.MQTT_USERNAME;
 const MQTT_PASSWORD = process.env.MQTT_PASSWORD;
