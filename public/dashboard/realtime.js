@@ -60,14 +60,12 @@ function updateTable(data) {
     const lastDataTmp = (Date.now() - new Date(row.lastData * 1000).getTime()) / 1000;
 
     if (lastDataTmp > 5000) {
-        console.log(badge);
         badge.className = 'badge bg-secondary status-badge';
         row.querySelector('.time-display').textContent = displayTimeSince(lastDataTmp);
     }
 
     if (data.is_open !== null && data.is_open !== undefined) {
         const badge = row.querySelector('.status-badge');
-        console.log(badge)
 
         if (!data.is_open) {
             badge.className = 'badge bg-danger pulse-danger status-badge';
