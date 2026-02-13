@@ -1,5 +1,6 @@
 require('dotenv').config();
-const http = require('http');
+const fs = require('fs');
+const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { WebSocketServer } = require('ws');
@@ -47,7 +48,11 @@ app.get("/state/hour", authenticateJWT, getStateHour);
 app.get("/state/door", authenticateJWT, getStateDoor);
 
 // CRÉATION DU SERVEUR
-const server = http.createServer(app);
+const options = {
+    cert: fs.readFileSync('/certs/fullchain.pem'),
+    key: fs.readFileSync('/certs/privkey.pem')
+}
+const server = https.createServer(options, app);
 const wss = new WebSocketServer({ server });
 
 wss.on('connection', function connection(ws) {
@@ -104,6 +109,6 @@ mqttClient.on('message', async (topic, message) => {
 });
 
 // DÉMARRAGE DU SERVEUR SUR LE PORT 8080
-server.listen(8080, () => {
+server.listen(443, () => {
     console.log('🚀 Serveur (API + WebSocket) démarré sur le port 8080');
 });
