@@ -33,7 +33,7 @@ async function loadMonthChart(year) {
             labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
             datasets: [
                 {
-                    label: 'Nombre d\'ouvertures',
+                    label: 'Secondes d\'ouvertures',
                     data: openValues,
                     backgroundColor: 'rgba(54, 162, 235, 0.6)', // Bleu
                     order: 2, // Pour que les barres soient derrière la ligne
