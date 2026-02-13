@@ -7,8 +7,6 @@ async function initDoors() {
     const doors = await res.json();
 
     doors.forEach(data => {
-
-
         updateTable(data);
     });
 }
@@ -62,18 +60,18 @@ function updateTable(data) {
     const lastDataTmp = (Date.now() - new Date(row.lastData * 1000).getTime()) / 1000;
 
     if (lastDataTmp > 5000) {
+        console.log(badge);
         badge.className = 'badge bg-secondary status-badge';
         row.querySelector('.time-display').textContent = displayTimeSince(lastDataTmp);
     }
 
     if (data.is_open !== null && data.is_open !== undefined) {
         const badge = row.querySelector('.status-badge');
+        console.log(badge)
 
-        const isOpen = data.is_open === '1' ? false : true;
-
-        if (isOpen) {
+        if (!data.is_open) {
             badge.className = 'badge bg-danger pulse-danger status-badge';
-            badge.textContent = 'Ouverte (Alerte)';
+            badge.textContent = 'Ouverte';
         } else {
             badge.className = 'badge bg-success status-badge';
             badge.textContent = 'Fermée';
