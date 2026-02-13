@@ -13,7 +13,7 @@ async function initDoors() {
 
 initDoors();
 
-const socket = new WebSocket(`wss://${location.host}`);
+const socket = new WebSocket(`ws://${location.host}`);
 
 socket.addEventListener('message', event => {
     try {
